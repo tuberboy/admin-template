@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pure CSS and HTML Responsive Design Admin Template</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'segoe ui';
+}
+
+.nav {
+    height: 50px;
+    width: 100%;
+    background-color: #4d4d4d;
+    position: relative;
+}
+
+.nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.nav-title {
+    font-size: 22px;
+    color: #fff;
+    margin-left: 1%;
+    margin-right: auto;
+}
+
+.nav-menu {
+    color: #fff;
+    margin-right: auto;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-icon {
+    margin-right: 1%;
+    padding: 8px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.nav-icon>label::before,
+.nav-icon>label::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: all 0.5s ease;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.nav-icon>label::after {
+    box-shadow: inset 0 0 0 1px #ccc;
+}
+
+.nav-icon>label::before {
+    background: gray;
+    box-shadow: inset 0 0 0 60px #4d4d4d;
+}
+
+.nav-icon>label:hover::before {
+    width: 100%;
+    box-shadow: inset 0 0 0 1px #4d4d4d;
+}
+
+
+.nav-icon>label {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.nav-btn {
+    box-sizing: border-box;
+    position: relative;
+    transform: scale(var(--mci, 1));
+    width: 30px;
+    height: 27px;
+    border-top: 3px solid;
+    border-bottom: 3px solid;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+}
+
+.nav-btn::after,
+.nav-btn::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    top: 4.5px;
+}
+
+.nav-btn::before {
+    border-right: 8px solid;
+    left: 1px;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 7px solid transparent;
+    color: #ccc;
+}
+
+.nav-btn::after {
+    width: 16px;
+    height: 12px;
+    border-top: 3px solid;
+    border-bottom: 3px solid;
+    right: 0;
+}
+
+#nav-check {
+    display: none;
+}
+
+.nav-links {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #333;
+    width: 65%;
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-links>a {
+    text-decoration: none;
+    color: #efefef;
+    padding: 10px;
+}
+
+.nav-links>a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#nav-check:checked+.nav-links {
+    transform: translateX(0);
+}
+
+
+
+
+.menu-btn {
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 12px;
+    background: linear-gradient(to left, transparent 50%, gray 50%) right;
+    background-size: 200%;
+    transition: background-position 0.5s;
+}
+
+.menu-btn:hover {
+    background-position: left;
+}
+
+
+.home-btn {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.home-btn:hover {
+    background: linear-gradient(to right, transparent 50%, gray 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: background-position 0.5s;
+}
+
+.mc-home {
+    background:
+        linear-gradient(to left,
+            currentColor 5px, transparent 0) no-repeat 0 bottom/4px 2px,
+        linear-gradient(to left,
+            currentColor 5px, transparent 0) no-repeat right bottom/4px 2px;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--mci, 1));
+    width: 18px;
+    height: 14px;
+    border: 2px solid;
+    border-top: 0;
+    border-bottom: 0;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-bottom: -2px;
+
+    color: #ffffff;
+}
+
+.mc-home::after,
+.mc-home::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+.mc-home::before {
+    border-top: 2px solid;
+    border-left: 2px solid;
+    border-top-left-radius: 4px;
+    transform: rotate(45deg);
+    top: -5px;
+    border-radius: 3px;
+    width: 14px;
+    height: 14px;
+    left: 0
+}
+
+.mc-home::after {
+    width: 8px;
+    height: 10px;
+    border: 2px solid;
+    border-radius: 100px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 0;
+    left: 3px;
+    bottom: 0
+}
+
+
+.mc-user {
+    display: block;
+    transform: scale(var(--mci, 1));
+    box-sizing: border-box;
+    width: 12px;
+    height: 18px;
+
+    color: #ccc;
+}
+
+.mc-user::after,
+.mc-user::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    border: 2px solid
+}
+
+.mc-user::before {
+    width: 8px;
+    height: 8px;
+    border-radius: 30px;
+    top: 0;
+    left: 2px
+}
+
+.mc-user::after {
+    width: 12px;
+    height: 9px;
+    border-bottom: 0;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    top: 9px
+}
+
+
+.mc-notifications {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--mci, 1));
+    width: 14px;
+    height: 14px;
+    background:
+        linear-gradient(to left, currentColor 10px, transparent 0) no-repeat right bottom/2px 8px,
+        linear-gradient(to left, currentColor 10px, transparent 0) no-repeat left top/8px 2px;
+
+    color: #ccc;
+}
+
+.mc-notifications::after,
+.mc-notifications::before {
+    content: "";
+    position: absolute;
+    display: block;
+    box-sizing: border-box
+}
+
+.mc-notifications::before {
+    width: 14px;
+    height: 14px;
+    border-left: 2px solid;
+    border-bottom: 2px solid
+}
+
+.mc-notifications::after {
+    width: 6px;
+    height: 6px;
+    border-radius: 4px;
+    background: currentColor;
+    top: -2px;
+    right: -2px
+}
+
+
+.mc-inbox {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--mci, 1));
+    width: 18px;
+    height: 18px;
+    border: 2px solid;
+    box-shadow: inset 0 -2px 0 0;
+    border-radius: 3px;
+
+    color: #ccc;
+}
+
+.mc-inbox::after,
+.mc-inbox::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    background: currentColor;
+    height: 7px;
+    width: 7px;
+    border-radius: 2px;
+    bottom: -2px
+}
+
+.mc-inbox::before {
+    left: -2px
+}
+
+.mc-inbox::after {
+    right: -2px
+}
+
+
+.mc-dollar {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--mci, 1));
+    width: 2px;
+    height: 20px;
+    background: currentColor;
+
+    color: #ccc;
+}
+
+.mc-dollar::after,
+.mc-dollar::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 10px;
+    height: 8px;
+    border: 2px solid
+}
+
+.mc-dollar::before {
+    border-right: 0;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    top: 3px;
+    left: -6px;
+    box-shadow: 4px -2px 0 -2px
+}
+
+.mc-dollar::after {
+    border-left: 0;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    bottom: 3px;
+    right: -6px;
+    box-shadow: -4px 2px 0 -2px
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+    <div class="nav-header">
+        <div class="nav-title">
+            <a href="">
+                <div class="home-btn"><i class="mc-home"></i></div>
+            </a>
+        </div>
+        <div class="nav-menu">
+            <div class="menu-btn"><i class="mc-dollar"></i></div>
+        </div>
+        <div class="nav-menu">
+            <div class="menu-btn"><i class="mc-inbox"></i></div>
+        </div>
+        <div class="nav-menu">
+            <div class="menu-btn"><i class="mc-notifications"></i></div>
+        </div>
+        <div class="nav-menu">
+            <div class="menu-btn"><i class="mc-user"></i></div>
+        </div>
+        <div class="nav-icon"><label for="nav-check"><i class="nav-btn"></i></label></div>
+    </div>
+    <input type="checkbox" id="nav-check">
+    <div class="nav-links">
+        <a href="">Github</a>
+        <a href="">Stackoverflow</a>
+        <a href="">LinkedIn</a>
+        <a href="">Codepen</a>
+        <a href="">JsFiddle</a>
+    </div>
+</div>
+
+<p>Admin Template V0.0.1</p>
+
+</body>
+</html>
